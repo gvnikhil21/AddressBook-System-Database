@@ -34,3 +34,8 @@ insert into addressbook values
 ```
 select * from addressbook;
 ```
+### Edit existing contact person using name
+```
+update addressbook
+set address='lalbagh' where first_name='jonny' and last_name='holder';
+``` 
