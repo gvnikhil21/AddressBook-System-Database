@@ -60,3 +60,9 @@ group by city;
 select state, count(state) as 'no. of contacts' from addressbook
 group by state;
 ``` 
+### Retrieve entries sorted by person's name for a given city
+```
+select * from addressbook 
+where city='hyderabad' 
+order by concat(first_name,' ',last_name);
+```
