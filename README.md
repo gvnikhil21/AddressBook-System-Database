@@ -49,3 +49,14 @@ where first_name='jonny' and last_name='holder';
 select * from addressbook
 where city='hyderabad' or state='odisha';
 ```
+### Count contacts in addressbook by city and state
+#### Count contacts by city
+```
+select city, count(city) as 'no. of contacts' from addressbook
+group by city;
+```
+#### Count contacts by state
+```
+select state, count(state) as 'no. of contacts' from addressbook
+group by state;
+``` 
