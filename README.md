@@ -96,3 +96,8 @@ end;
 select * from addressbook where addressbook_name='bookOne';
 select * from addressbook where addressbook_type='personal';
 ```
+### Get count of contacts by addressbook type
+```
+select addressbook_type, count(addressbook_type) as 'no. of contacts' from addressbook
+group by addressbook_type;
+```
