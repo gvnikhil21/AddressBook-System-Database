@@ -39,3 +39,8 @@ select * from addressbook;
 update addressbook
 set address='lalbagh' where first_name='jonny' and last_name='holder';
 ``` 
+### Delete contact person using name
+```
+delete from addressbook
+where first_name='jonny' and last_name='holder';
+```
