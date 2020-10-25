@@ -101,3 +101,16 @@ select * from addressbook where addressbook_type='personal';
 select addressbook_type, count(addressbook_type) as 'no. of contacts' from addressbook
 group by addressbook_type;
 ```
+### Add person to both family and friend addressbook type
+#### Change primary key to first_name + last_name + addressbook_type
+```
+alter table addressbook drop primary key;
+alter table addressbook add primary key (addressbook_type, first_name,last_name);
+```
+#### Add contact to friend and family
+```
+insert into addressbook 
+values
+('bookTwo','friend','gv', 'nikhil', 'main road', 'jharsuguda', 'odisha', '768201', '1234567890', 'gvxyz@gmail.com'),
+('bookTwo','family','gv', 'nikhil', 'main road', 'jharsuguda', 'odisha', '768201', '1234567890', 'gvxyz@gmail.com');
+```
