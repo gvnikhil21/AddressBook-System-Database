@@ -44,3 +44,8 @@ set address='lalbagh' where first_name='jonny' and last_name='holder';
 delete from addressbook
 where first_name='jonny' and last_name='holder';
 ```
+### Retrieve contact by city or state
+```
+select * from addressbook
+where city='hyderabad' or state='odisha';
+```
