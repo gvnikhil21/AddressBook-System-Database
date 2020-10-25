@@ -66,3 +66,33 @@ select * from addressbook
 where city='hyderabad' 
 order by concat(first_name,' ',last_name);
 ```
+### Identify each addressbook with name and type
+#### Alter addressbook to add addressbook_name
+```
+alter table addressbook
+add addressbook_name varchar(10) first;
+```
+#### Alter addressbok to add addressbook_type
+```
+alter table addressbook
+add addressbook_type varchar(10) after addressbook_name;
+```
+#### Update values for addressbook_name and addressbook_type columns
+```
+update addressbook set 
+addressbook_name='bookOne' where first_name in ('gv','jonny','kane','nikhil');
+
+update addressbook 
+set  addressbook_type=
+case first_name
+when 'gv' then 'personal'
+when 'jonny' then 'office'
+when 'nikhil' then 'personal'
+when 'kane' then 'office'
+end;
+```
+#### Retrieve contact by addressbook name or type
+```
+select * from addressbook where addressbook_name='bookOne';
+select * from addressbook where addressbook_type='personal';
+```
