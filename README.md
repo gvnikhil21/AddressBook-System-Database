@@ -114,3 +114,28 @@ values
 ('bookTwo','friend','gv', 'nikhil', 'main road', 'jharsuguda', 'odisha', '768201', '1234567890', 'gvxyz@gmail.com'),
 ('bookTwo','family','gv', 'nikhil', 'main road', 'jharsuguda', 'odisha', '768201', '1234567890', 'gvxyz@gmail.com');
 ```
+### Ensuring retrieve queries for new table structure
+#### Retrieve contact belonging to a city or state
+```
+select * from contact
+where city='Hyderabad' or state='Odisha';
+```
+#### Count contacts by city or state
+```
+select city, count(city) as 'no. of contacts' from contact
+group by city;
+
+select state, count(state) as 'no. of contacts' from contact
+group by state;
+```
+#### Retrieve entries sorted by person's name for a given city
+```
+select * from contact
+where city='Hyderabad' 
+order by concat(first_name,' ',last_name);
+```
+#### Get count of contacts by addressbook type
+```
+select addressbook_type.type, count(addressbook_contact.contact_id) from addressbook_type join addressbook_contact
+on addressbook_type.id_addressbook_type=addressbook_contact.id_addressbook_type;
+```
